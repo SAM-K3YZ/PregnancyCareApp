@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
+    <color name="black">#3a3a40</color>
+    <color name="gray">#959595</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="blue">#a2d2ff</color>
+    <color name="pink">#ffafcc</color>
+    <color name="light_pink">#ffc8dd</color>
+    <color name="green">#44DD2A</color>
+    <color name="lighter_pink">#F8E1EA</color>
+    <color name="purple">#9575CD</color>
+    <color name="light_blue">#bde0fe</color>
+    <color name="orange">#FFBD80</color>
+    <color name="transparent">#00ffffff</color>
+
+    <color name="my_primary">#FF5964</color>
+    <color name="off_white">#FAFAFA</color>
+    <color name="light_gray">#C3C3C3</color>
+
+    <color name="chat_color_sender">#1E88E5</color>
+    <color name="chat_color_receiver">#7CB342</color>
+
+    <!-- dots inactive colors -->
+    <color name="dot_dark_screen1">#dee2e6</color>
+    <color name="dot_dark_screen2">#ffafcc</color>
+
+    <!-- dots active colors -->
+    <color name="dot_light_screen1">#3a3a40</color>
+    <color name="dot_light_screen2">#ffc8dd</color>
+
+    <array name="array_dot_active">
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen2</item>
+    </array>
+
+    <array name="array_dot_inactive">
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen2</item>
+    </array>
 </resources>

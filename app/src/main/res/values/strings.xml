@@ -1,3 +1,167 @@
 <resources>
-    <string name="app_name">PregnancyCareApp</string>
+    <string name="app_name">PreGo</string>
+    <string name="developer_name">Exypnos Design</string>
+    <string name="slide_description">slide</string>
+    <string name="skip">Skip</string>
+    <string name="right_arrow">Right Arrow</string>
+    <string name="left_arrow">left Arrow</string>
+    <string name="slide_image">slide image</string>
+
+    <!--  drawer  -->
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
+
+    <!--onBoarding screen Title    -->
+    <string name="slideTitle1">Why worry about your trimester</string>
+    <string name="slideTitle2">Afraid you won\'t be able to keep tab of your symptoms?</string>
+    <string name="slideTitle3">Scared you won\'t have a good pregnancy journey?</string>
+
+    <!--onBoarding screen description    -->
+    <string name="slideDescription1">Calender</string>
+    <string name="slideDescription2">Symptoms</string>
+    <string name="slideDescription3">Pregnancy Journey</string>
+    <string name="appName">PreGo</string>
+    <string name="motto">Babies comes first…</string>
+    <string name="version">Version 1.0.0</string>
+    <string name="or">Or</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_in">Sign In</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="google_logo">Google Logo</string>
+    <string name="email">Email</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="conception_date">Conception Date</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="calendar_button">Calendar button</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="settings">Settings</string>
+    <string name="track">Track</string>
+    <string name="pictures">Pictures</string>
+    <string name="home">Home</string>
+    <string name="hello_user">Hello User</string>
+    <string name="tools">Tools</string>
+    <string name="welcome">Welcome...</string>
+    <string name="trimester_title">Trimester:</string>
+    <string name="trimester">First</string>
+    <string name="days_pregnant">0 weeks, 1 day pregnant</string>
+    <string name="pregnancy_date">20 Dec 2025</string>
+    <string name="due">Due</string>
+    <string name="services">Services</string>
+    <string name="doctor_s_appointment">Doctor\'s Appointment</string>
+    <string name="Symptoms">Symptoms</string>
+    <string name="weight">Weight</string>
+    <string name="_39_0cm">39.0cm</string>
+    <string name="length">Length</string>
+    <string name="kg">1.5_1.9kg</string>
+    <string name="name">Name</string>
+    <string name="specialty">Medical Doctor</string>
+    <string name="doctor_s_image">Doctor\'s Image</string>
+    <string name="available_doctors">Available Doctors</string>
+    <string name="see_all">See all</string>
+    <string name="back">Back</string>
+    <string name="filter_icon">Filter icon</string>
+    <string name="online">Online</string>
+    <string name="offline">Offline</string>
+    <string name="online_offline_status_color">Online/Offline Status color</string>
+    <string name="rating">Rating</string>
+    <string name="time">8:00a - 10:00am</string>
+    <string name="n">N</string>
+    <string name="charge">25,000</string>
+    <string name="clock_icon">Clock Icon</string>
+    <string name="description">Description</string>
+
+    <!--Names of Doctors    -->
+    <string name="Doc1">Amaku</string>
+    <string name="Doc2">Frank</string>
+    <string name="Doc3">Echezona</string>
+    <string name="Doc4">Benjamin</string>
+
+    <!-- Doc Status   -->
+    <string name="s1">Online</string>
+    <string name="s2">Offline</string>
+    <string name="s3">Offline</string>
+    <string name="s4">Offline</string>
+
+    <!--Doc Charges    -->
+    <string name="c1">40,000</string>
+    <string name="c2">100,000</string>
+    <string name="c3">70,000</string>
+    <string name="c4">30,000</string>
+
+    <!--Doc Time    -->
+    <string name="t1">40,000</string>
+    <string name="t2">100,000</string>
+    <string name="t3">70,000</string>
+    <string name="t4">30,000</string>
+
+    <!--Doc Descriptions    -->
+    <string name="d1">A well renowned medical doctor with 4 years experience</string>
+    <string name="d2">A well renowned Psychologist with 10 years experience</string>
+    <string name="d3">A well renowned Gynecologist with 5 years experience</string>
+    <string name="d4">A well renowned Gynecologist with 3 years experience</string>
+
+    <!--Doc Ratings    -->
+    <string name="r1">4.0</string>
+    <string name="r2">4.0</string>
+    <string name="r3">4.5</string>
+    <string name="r4">3.0</string>
+
+    <!--Doc Specialties    -->
+    <string name="ss1">Medical Doctor</string>
+    <string name="ss2">Psychologist</string>
+    <string name="ss3">Gynecologist</string>
+    <string name="ss4">Gynecologist</string>
+    <string name="doctors">Doctors</string>
+    <string name="baby">Baby</string>
+    <string name="meditate">Meditate</string>
+    <string name="record">Record</string>
+    <string name="noticing_changes">Noticing some\nchanges in weight?</string>
+    <string name="feeling_question">How are you feeling today?</string>
+    <string name="medicine">Medicine</string>
+    <string name="keep_track_of_your_medications">Keep track of your medications</string>
+    <string name="manage_your_pills">Manage your pills</string>
+    <string name="photo_album">Photo Album</string>
+    <string name="pregnancy_due">Pregnancy Due :</string>
+    <string name="pregnancy_due_date">5.10.24</string>
+    <string name="ultrasound_photos">Ultrasound Photos</string>
+    <string name="image_box">Image Box</string>
+    <string name="belly_photos">Belly Photos</string>
+    <string name="prescription_photos">Prescriptions</string>
+    <string name="add_image">Add Image</string>
+    <string name="add_image_descr">Add image</string>
+    <string name="pregnancy_log">Pregnancy Log</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="account_setting">Account Setting</string>
+    <string name="payment_setting">Payment Setting</string>
+    <string name="moods">Moods</string>
+    <string name="vaginal_bleeding">Vaginal Bleeding</string>
+    <string name="breast">Breast</string>
+    <string name="physical_activity">Physical Activity</string>
+    <string name="physchological_capacity">Physchological Capacity</string>
+    <string name="vaginal_discharge">Vaginal Dicharge</string>
+    <string name="search">Search</string>
+    <string name="enter_the_name_of_the_drug">Enter the name of the drug...</string>
+    <string name="phoneNumber">Phone Number</string>
+    <string name="fill_in_the_details">Fill in the details</string>
+    <string name="lastName">Last name</string>
+    <string name="firstName">First name</string>
+    <string name="send_otp">Send otp</string>
+    <string name="mobile">Mobile</string>
+    <string name="profile_page">Profile Page</string>
+    <string name="exit_button">Exit button</string>
+    <string name="log_out">Log Out</string>
+    <string name="edit_button">Edit Button</string>
+    <string name="update_profile">Update profile</string>
+    <string name="user_picture">User Picture</string>
+    <string name="create_new_account">Create an Account</string>
+    <string name="chat">Chat</string>
+    <string name="profile_pic">Profile pic</string>
+    <string name="prego">PreGo</string>
+    <string name="next">Next</string>
+
 </resources>

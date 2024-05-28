@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeB"
+        android:icon="@drawable/home_icon"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/picturesB"
+        android:icon="@drawable/image_icon"
+        android:title="@string/pictures" />
+    <item
+        android:id="@+id/babyB"
+        android:icon="@drawable/baby"
+        android:title="@string/baby" />
+    <item
+        android:id="@+id/docB"
+        android:icon="@drawable/medical_services"
+        android:title="@string/doctors" />
+    <item
+        android:id="@+id/settingsB"
+        android:icon="@drawable/settings_icon"
+        android:title="@string/settings" />
+</menu>
