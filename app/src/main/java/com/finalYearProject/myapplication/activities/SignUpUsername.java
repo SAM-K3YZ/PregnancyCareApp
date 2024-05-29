@@ -67,7 +67,7 @@ public class SignUpUsername extends AppCompatActivity {
             usernameText.setError("Username length should be at least 3 chars");
             return;
         }
-        setInProgress(true);
+        //setInProgress(true);
 
         if(userModel != null){
             userModel.setUsername(username);
@@ -78,7 +78,7 @@ public class SignUpUsername extends AppCompatActivity {
         FirebaseUtil.currentUserDetails().set(userModel).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                setInProgress(false);
+                //setInProgress(false);
                 if(task.isSuccessful()){
                     Intent intent = new Intent(SignUpUsername.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
@@ -90,12 +90,12 @@ public class SignUpUsername extends AppCompatActivity {
     }
 
     void getUsername(){
-        setInProgress(true);
+        //setInProgress(true);
 
         FirebaseUtil.currentUserDetails().get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                setInProgress(false);
+                //setInProgress(false);
                 if(task.isSuccessful()){
                     userModel = task.getResult().toObject(UserModel.class);
                     if(userModel!=null){
@@ -106,14 +106,14 @@ public class SignUpUsername extends AppCompatActivity {
         });
     }
 
-    void setInProgress(boolean inProgress){
-        if(inProgress){
-            progressBar.setVisibility(View.VISIBLE);
-            LMIBtn.setVisibility(View.GONE);
-        }else{
-            progressBar.setVisibility(View.GONE);
-            LMIBtn.setVisibility(View.VISIBLE);
-        }
-    }
+//    void setInProgress(boolean inProgress){
+//        if(inProgress){
+//            progressBar.setVisibility(View.VISIBLE);
+//            LMIBtn.setVisibility(View.GONE);
+//        }else{
+//            progressBar.setVisibility(View.GONE);
+//            LMIBtn.setVisibility(View.VISIBLE);
+//        }
+//    }
 
 }

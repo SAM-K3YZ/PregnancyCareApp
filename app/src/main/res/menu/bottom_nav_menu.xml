@@ -6,13 +6,13 @@
         android:icon="@drawable/home_icon"
         android:title="@string/home" />
     <item
-        android:id="@+id/picturesB"
-        android:icon="@drawable/image_icon"
-        android:title="@string/pictures" />
-    <item
         android:id="@+id/babyB"
         android:icon="@drawable/baby"
         android:title="@string/baby" />
+    <item
+        android:id="@+id/messsageB"
+        android:icon="@drawable/chat_icon"
+        android:title="@string/chat" />
     <item
         android:id="@+id/docB"
         android:icon="@drawable/medical_services"

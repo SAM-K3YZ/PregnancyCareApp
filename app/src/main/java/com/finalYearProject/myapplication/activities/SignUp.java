@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +38,7 @@ public class SignUp extends AppCompatActivity {
     CountryCodePicker countryCodePicker;
     TextView toSignIn;
     Button signUpBtn;
+    ProgressBar progressBar;
     private EditText concepDate;
     //private ImageButton dateBtn;
     private int y, m, d;
@@ -60,6 +62,7 @@ public class SignUp extends AppCompatActivity {
         firstNameText = findViewById(R.id.signUp_firstName);
         lastNameText = findViewById(R.id.signUp_lastName);
         concepDate = findViewById(R.id.signUp_conceptionDate);
+        progressBar = findViewById(R.id.signUp_progress_bar);
 //        dateBtn = findViewById(R.id.imageButton);
         countryCodePicker = findViewById(R.id.signUp_countrycode);
         phoneNumberInput = findViewById(R.id.signUp_mobile_number);
@@ -107,6 +110,7 @@ public class SignUp extends AppCompatActivity {
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+                                //setInProgress(true);
                                 if (task.isSuccessful()){
                                     Toast.makeText(SignUp.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(SignUp.this, SignUpUsername.class);
@@ -121,6 +125,7 @@ public class SignUp extends AppCompatActivity {
                                 }
                                 else{
                                     Toast.makeText(SignUp.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
+                                    //setInProgress(false);
                                 }
                             }
                         });
@@ -153,4 +158,13 @@ public class SignUp extends AppCompatActivity {
             }
         });
     }
+//    void setInProgress(boolean inProgress){
+//        if(inProgress){
+//            progressBar.setVisibility(View.VISIBLE);
+//            signUpBtn.setVisibility(View.GONE);
+//        }else{
+//            progressBar.setVisibility(View.GONE);
+//            signUpBtn.setVisibility(View.VISIBLE);
+//        }
+//    }
 }
