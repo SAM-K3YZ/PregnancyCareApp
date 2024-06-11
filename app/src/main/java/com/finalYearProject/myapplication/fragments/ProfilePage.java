@@ -133,14 +133,14 @@ public class ProfilePage extends Fragment {
         });
 
         profilePic.setOnClickListener((v) -> {
-            ImagePicker.with(this).cropSquare().compress(512).maxResultSize(512, 512)
-                    .createIntent(new Function1<Intent, Unit>() {
-                        @Override
-                        public Unit invoke(Intent intent) {
-                            imagePickLauncher.launch(intent);
-                            return null;
-                        }
-                    });
+//            ImagePicker.with(this).cropSquare().compress(512).maxResultSize(512, 512)
+//                    .createIntent(new Function1<Intent, Unit>() {
+//                        @Override
+//                        public Unit invoke(Intent intent) {
+//                            imagePickLauncher.launch(intent);
+//                            return null;
+//                        }
+//                    });
         });
 
     }
