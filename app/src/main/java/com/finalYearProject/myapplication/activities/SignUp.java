@@ -1,5 +1,7 @@
 package com.finalYearProject.myapplication.activities;
 
+import static java.security.AccessController.getContext;
+
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,7 +29,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.hbb20.CountryCodePicker;
+import com.jakewharton.threetenabp.AndroidThreeTen;
 
+//import java.time.LocalDate;
+import org.threeten.bp.LocalDate;
+//import java.time.format.DateTimeFormatter;
+import org.threeten.bp.format.DateTimeFormatter;
 import java.util.Calendar;
 
 public class SignUp extends AppCompatActivity {
@@ -42,7 +49,9 @@ public class SignUp extends AppCompatActivity {
     private EditText concepDate;
     //private ImageButton dateBtn;
     private int y, m, d;
+    //private TextView concepDate;
     private int yy, mm, dd;
+    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
     @Override
@@ -55,6 +64,9 @@ public class SignUp extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        AndroidThreeTen.init(this);
+
         emailText = findViewById(R.id.signUp_email);
         passwordText = findViewById(R.id.signUp_password);
         toSignIn = findViewById(R.id.toSignIn);
@@ -143,17 +155,19 @@ public class SignUp extends AppCompatActivity {
                 mm = calendar.get(Calendar.MONTH);
                 dd = calendar.get(Calendar.DAY_OF_MONTH);
 
-                DatePickerDialog dialog;
-                dialog = new DatePickerDialog(SignUp.this, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog dialog = new DatePickerDialog(SignUp.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         yy = year;
                         mm = month;
                         dd = dayOfMonth;
 
-                        concepDate.setText(dd + " - " + mm + " - " + yy);
+                        // Note: month is 0-based, so we need to add 1
+                        LocalDate selectedDate = LocalDate.of(yy, mm + 1, dd);
+                        String formattedDate = DATE_FORMATTER.format(selectedDate);
+                        concepDate.setText(formattedDate);
                     }
-                },yy,mm,dd);
+                }, yy, mm, dd);
                 dialog.show();
             }
         });

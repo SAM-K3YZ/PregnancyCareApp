@@ -51,5 +51,9 @@ dependencies {
     //new
     implementation("com.hbb20:ccp:2.7.0")
     implementation("com.google.firebase:firebase-bom:31.0.0")
+    implementation (libs.firebase.ui.firestore)
     implementation (libs.glide)
+    implementation("com.jakewharton.threetenabp:threetenabp:1.3.1")
+    implementation(libs.okhttp)
+    implementation ("com.github.Dhaval2404:ImagePicker:v2.1")
 }

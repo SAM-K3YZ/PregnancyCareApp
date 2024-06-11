@@ -24,12 +24,13 @@ import com.finalYearProject.myapplication.fragments.BabyPage;
 import com.finalYearProject.myapplication.fragments.ChatPage;
 import com.finalYearProject.myapplication.fragments.DoctorsPage;
 import com.finalYearProject.myapplication.fragments.HomePage;
-import com.finalYearProject.myapplication.fragments.SettingsPage;
+import com.finalYearProject.myapplication.fragments.ProfilePage;
 import com.finalYearProject.myapplication.utils.FirebaseUtil;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.jakewharton.threetenabp.AndroidThreeTen;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     /*implement this above if using drawer navigation
@@ -52,6 +53,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        AndroidThreeTen.init(this);
 
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -92,8 +95,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     openFragment(new ChatPage());
                 } else if (itemId == R.id.docB) {
                     openFragment(new DoctorsPage());
-                } else if (itemId == R.id.settingsB) {
-                    openFragment(new SettingsPage());
+                } else if (itemId == R.id.profileB) {
+                    openFragment(new ProfilePage());
                 }
                 return true;
             }
@@ -116,8 +119,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (itemId == R.id.docB) {
             openFragment(new DoctorsPage());
             return true;
-        } else if (itemId == R.id.settingsB) {
-            openFragment(new SettingsPage());
+        } else if (itemId == R.id.profileB) {
+            openFragment(new ProfilePage());
             return true;
         } else if (itemId == R.id.version) {
             Toast.makeText(this, "Still in development stage", Toast.LENGTH_SHORT).show();

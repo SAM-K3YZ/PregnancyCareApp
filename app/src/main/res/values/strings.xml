@@ -163,5 +163,19 @@
     <string name="profile_pic">Profile pic</string>
     <string name="prego">PreGo</string>
     <string name="next">Next</string>
+    <string name="notification">Notifications</string>
+    <string name="TC">Terms and Conditions</string>
+    <string name="aboutUs">About Us</string>
+    <string name="contactUs">Contact Us</string>
+    <string name="baby_profile">Baby</string>
+    <string name="exypnosDesign">Exypnos Design</string>
+    <string name="profile">Profile</string>
+    <string name="expected_delivery_date">Expected Delivery date</string>
+    <string name="day_s_remaining">Day(s) Remaining</string>
+    <string name="day_s_pregnant">Day(s) Pregnant</string>
+    <string name="note_sentence">Length and Weight are measured in cm and grams respectively. The fruit comparison provides a visual reference for the size of the fetus.</string>
+    <string name="note">Note:</string>
+    <string name="image_of_a_fruit">Image of a Fruit</string>
+    <string name="orange">Orange</string>
 
 </resources>
