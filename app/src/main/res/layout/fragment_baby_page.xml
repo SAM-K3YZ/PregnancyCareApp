@@ -77,6 +77,7 @@
                         android:layout_alignParentStart="true"
                         android:fontFamily="sans-serif-medium"
                         android:text="@string/weight"
+                        android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
@@ -121,8 +122,23 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/fruitText"
-                        android:layout_alignParentBottom="true"
                         android:layout_toStartOf="@+id/lengthStatic"
+                        android:layout_toEndOf="@id/weightStatic"
+                        android:fontFamily="sans-serif"
+                        android:text="@string/weight"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/babySizeDescriptionText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/babySizeText"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="5dp"
                         android:layout_toEndOf="@id/weightStatic"
                         android:fontFamily="sans-serif"
                         android:text="@string/weight"
@@ -138,6 +154,7 @@
                         android:layout_alignParentEnd="true"
                         android:fontFamily="sans-serif-medium"
                         android:text="@string/length"
+                        android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 

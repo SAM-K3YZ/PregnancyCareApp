@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/medMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -10,7 +10,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:padding="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,56 +46,88 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/searchLayout"
+            android:id="@+id/searchArea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appBar">
+            app:layout_constraintTop_toBottomOf="@id/appBar">
 
-            <EditText
-                android:id="@+id/searchView"
+            <AutoCompleteTextView
+                android:id="@+id/search_medicine_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="30"
                 android:background="@drawable/search_bg"
                 android:drawableStart="@drawable/outline_search"
                 android:drawablePadding="10dp"
+                android:fontFamily="sans-serif"
                 android:hint="@string/enter_the_name_of_the_drug"
                 android:inputType="text"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
-            <!--            <Button-->
-            <!--                android:id="@+id/searchBtn"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_weight="1"-->
-            <!--                android:backgroundTint="@color/purple"-->
-            <!--                android:fontFamily="sans-serif-medium"-->
-            <!--                android:text="@string/search"-->
-            <!--                android:textColor="@color/white"-->
-            <!--                android:textSize="15sp" />-->
+            <ImageView
+                android:id="@+id/filter_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="Filter"
+                android:src="@drawable/round_filter_list" />
 
         </LinearLayout>
 
+<!--        <EditText-->
+<!--            android:id="@+id/medicine_name"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/searchArea"-->
+<!--            android:hint="Enter medicine name"/>-->
+
+        <Button
+            android:id="@+id/view_selected_medicines_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Selected Medicines"
+            app:layout_constraintBottom_toTopOf="@+id/search_Btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/search_Btn"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/purple"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/search"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="385dp"
-        android:layout_height="0dp"
-        android:scrollbars="none"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="UselessParent">
+    <!--    <ScrollView-->
+    <!--        android:id="@+id/scrollView2"-->
+    <!--        android:layout_width="385dp"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        android:scrollbars="none"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.0"-->
+    <!--        tools:ignore="UselessParent">-->
 
 
-    </ScrollView>
+    <!--    </ScrollView>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

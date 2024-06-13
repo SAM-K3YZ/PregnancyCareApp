@@ -14,18 +14,12 @@ import android.widget.TextView;
 
 import com.finalYearProject.myapplication.R;
 import com.finalYearProject.myapplication.model.FetusDetails;
-import com.finalYearProject.myapplication.utils.FetusDetailsManager;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentSnapshot;
+import com.finalYearProject.myapplication.model.UserModel;
+import com.finalYearProject.myapplication.manager.FetusDetailsManager;
+import com.finalYearProject.myapplication.utils.FirebaseUtil;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import org.threeten.bp.LocalDate;
 import org.threeten.bp.format.DateTimeFormatter;
-import org.threeten.bp.temporal.ChronoUnit;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,15 +36,20 @@ public class BabyPage extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private FetusDetailsManager fetusDetailsManager;
-    private static final String TAG = "MainActivity";
+    FetusDetailsManager manager = new FetusDetailsManager();
+    private static final String TAG = "BabyPage";
     private static final String COLLECTION_NAME = "fetus_details";
     private FirebaseFirestore db;
-    private String conceptionDateStr;
+    private String conceptionDateStr, weightTextStr, lengthTextStr;
+    private String selectedWeek;
+    UserModel currentUserModel;
     private static final String CONCEPTION_DATE_FIELD = "conceptionDate";
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    TextView weightText, lengthText, babySizeText, fruitName;
-    private Map<String, FetusDetails> fetusDetailsMap;
+    TextView weightText;
+    TextView lengthText;
+    TextView babySizeText;
+    TextView fruitName;
+    TextView descriptionText;
 
     public BabyPage() {
         // Required empty public constructor
@@ -81,6 +80,46 @@ public class BabyPage extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        //retrieving the conceptionDate and converting it to string
+        FirebaseUtil.currentUserDetails().get().addOnCompleteListener(task -> {
+            currentUserModel = task.getResult().toObject(UserModel.class);
+            if (currentUserModel != null) {
+                conceptionDateStr = currentUserModel.getConceptionDate();
+                Log.d(TAG, "Conception Date: " + conceptionDateStr);
+            }
+        });
+
+
+        //saving the hash map data about the fetus to the database
+        manager.saveFetusDetailsToFirestore();
+        //retrieving the fetus details based on the selected week
+        String week = "week_12"; // Example week to retrieve
+        manager.retrieveFetusDetailsFromFirestore(week, new FetusDetailsManager.FetusDetailsCallback() {
+            @Override
+            public void onSuccess(FetusDetails fetusDetails) {
+                // Use the retrieved fetus details
+                Log.d(TAG, "Size: " + fetusDetails.getSizeComparison());
+                Log.d(TAG, "Weight: " + fetusDetails.getWeight());
+                Log.d(TAG, "Length: " + fetusDetails.getLength());
+                Log.d(TAG, "Description: " + fetusDetails.getDescription());
+
+                //converting the data types that are in double to strings
+                weightTextStr = Double.toString(fetusDetails.getWeight());
+                lengthTextStr = Double.toString(fetusDetails.getLength());
+
+                //setting the text in the ui
+                fruitName.setText(fetusDetails.getSizeComparison());
+                descriptionText.setText(fetusDetails.getDescription());
+                weightText.setText(weightTextStr);
+                lengthText.setText(lengthTextStr);
+            }
+
+            @Override
+            public void onFailure(String errorMessage) {
+                Log.e(TAG, errorMessage);
+            }
+        });
+
     }
 
     @Override
@@ -93,7 +132,10 @@ public class BabyPage extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
+        weightText = view.findViewById(R.id.weightText);
+        lengthText = view.findViewById(R.id.lengthText);
+        fruitName = view.findViewById(R.id.fruitText);
+        descriptionText = view.findViewById(R.id.babySizeDescriptionText);
+        babySizeText = view.findViewById(R.id.babySizeText);
     }
 }

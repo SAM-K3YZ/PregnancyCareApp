@@ -44,16 +44,18 @@ dependencies {
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.storage)
     implementation(libs.firebase.messaging)
+    implementation(libs.firebase.database)
+    implementation(libs.recyclerview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
     //new
-    implementation("com.hbb20:ccp:2.7.0")
-    implementation("com.google.firebase:firebase-bom:31.0.0")
+    implementation(libs.ccp)
+    implementation(platform(libs.firebase.bom))
     implementation (libs.firebase.ui.firestore)
     implementation (libs.glide)
-    implementation("com.jakewharton.threetenabp:threetenabp:1.3.1")
+    implementation(libs.threetenabp)
     implementation(libs.okhttp)
-    implementation ("com.github.Dhaval2404:ImagePicker:v2.1")
+    //implementation (libs.imagepicker)
 }

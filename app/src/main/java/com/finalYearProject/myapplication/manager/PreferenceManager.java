@@ -1,4 +1,4 @@
-package com.finalYearProject.myapplication.utils;
+package com.finalYearProject.myapplication.manager;
 
 import android.content.Context;
 import android.content.SharedPreferences;

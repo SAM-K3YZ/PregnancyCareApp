@@ -1,4 +1,4 @@
-package com.finalYearProject.myapplication.utils;
+package com.finalYearProject.myapplication.manager;
 
 import android.util.Log;
 
@@ -14,15 +14,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FetusDetailsManager {
+
     private final Map<String, FetusDetails> fetusDetailsMap;
     private static final String COLLECTION_NAME = "fetus_details";
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "FetusDetailsManager";
 
     public FetusDetailsManager() {
         fetusDetailsMap = new HashMap<>();
+        //populating the HashMap with fetus details for each week
+        populateFetusDetails();
     }
 
-    public void populateFetusDetails() {
+    private void populateFetusDetails() {
         // Populate the HashMap with fetus details for each week
         fetusDetailsMap.put("week_4", new FetusDetails("Poppy Seed", 0.1, 0.7, "Tiny cluster of cells"));
         fetusDetailsMap.put("week_5", new FetusDetails("Sesame Seed", 0.2, 0.8," Beginning of development"));
@@ -61,18 +64,24 @@ public class FetusDetailsManager {
         fetusDetailsMap.put("week_38", new FetusDetails("Pumpkin", 49.8, 3083, "Full-term"));
         fetusDetailsMap.put("week_39", new FetusDetails("Watermelon", 50.7, 3288, "Ready for birth"));
         fetusDetailsMap.put("week_40", new FetusDetails("Watermelon", 51.2, 3462, "Average full-term weight"));
-
-
-        // Added more weeks as needed
     }
 
     public void saveFetusDetailsToFirestore() {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        if (db == null) {
+            Log.e(TAG, "FirebaseFirestore instance is null.");
+            return;
+        }
+
         for (Map.Entry<String, FetusDetails> entry : fetusDetailsMap.entrySet()) {
             String week = entry.getKey();
             FetusDetails details = entry.getValue();
-            populateFetusDetails();
+            if (details == null) {
+                Log.w(TAG, "FetusDetails for " + week + " is null.");
+                continue;
+            }
 
-            FirebaseFirestore.getInstance().collection(COLLECTION_NAME).document(week)
+            db.collection(COLLECTION_NAME).document(week)
                     .set(details)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
@@ -88,14 +97,21 @@ public class FetusDetailsManager {
     }
 
     public void retrieveFetusDetailsFromFirestore(String week, FetusDetailsCallback callback) {
-        FirebaseFirestore.getInstance().collection(COLLECTION_NAME).document(week)
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        if (db == null) {
+            Log.e(TAG, "FirebaseFirestore instance is null.");
+            callback.onFailure("FirebaseFirestore instance is null.");
+            return;
+        }
+
+        db.collection(COLLECTION_NAME).document(week)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
                             DocumentSnapshot document = task.getResult();
-                            if (document.exists()) {
+                            if (document != null && document.exists()) {
                                 FetusDetails fetusDetails = document.toObject(FetusDetails.class);
                                 if (fetusDetails != null) {
                                     callback.onSuccess(fetusDetails);
